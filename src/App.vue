@@ -1,11 +1,20 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <NavBar />
   </div>
   <router-view />
 </template>
+<script>
+// @ is an alias to /src
+import NavBar from "@/components/nav.vue";
 
+export default {
+  name: "App",
+  components: {
+    NavBar,
+  },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
