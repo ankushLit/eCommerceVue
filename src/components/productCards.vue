@@ -13,10 +13,13 @@
             <div class="">
               <p class="f5 mv1">${{ product.price }}</p>
             </div>
-            <div class="">
-              <a class="f6 link dim ph3 pv2 mb2 dib white bg-black" href="#0"
-                >Button Text</a
+            <div>
+              <button
+                class="bg-black white bn pa2 w-70 br2 f7 fw2 mv2 pointer"
+                @click="addProductToCart(product)"
               >
+                Add to cart
+              </button>
             </div>
           </div>
         </div>
@@ -30,6 +33,11 @@ export default {
   computed: {
     products() {
       return this.$store.state.products;
+    },
+  },
+  methods: {
+    addProductToCart(product) {
+      this.$store.dispatch("addProductToCart", product);
     },
   },
 };
