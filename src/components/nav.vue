@@ -17,8 +17,8 @@
         <a
           class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pv3 ph2 ph4-l pointer"
         >
-          <span id="qsLoginBtn" @click.prevent="login"
-            ><i class="fas fa-sign-in-alt mr2"></i>Login</span
+          <router-link class="link black relative" to="/login"
+            >Login</router-link
           >
         </a>
       </nav>

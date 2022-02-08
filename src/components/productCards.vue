@@ -13,6 +13,11 @@
             <div class="">
               <p class="f5 mv1">${{ product.price }}</p>
             </div>
+            <div class="">
+              <a class="f6 link dim ph3 pv2 mb2 dib white bg-black" href="#0"
+                >Button Text</a
+              >
+            </div>
           </div>
         </div>
       </article>
