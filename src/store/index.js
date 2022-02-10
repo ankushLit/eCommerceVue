@@ -3,6 +3,7 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     cart: [],
+    isAuthenticated: false,
     users: [
       {
         username: "rsharma6339@conestogac.on.ca",
@@ -106,6 +107,9 @@ export default createStore({
     },
   },
   actions: {
+    authenticateUser() {
+      this.state.isAuthenticated = !this.state.isAuthenticated;
+    },
     addProductToCart(context, product) {
       if (product.quantityInStock > 0) {
         const cartItem = context.state.cart.find(

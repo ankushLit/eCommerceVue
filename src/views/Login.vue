@@ -46,14 +46,20 @@
           Remember me on this computer?
         </label>
       </p>
-      <p class="submit">
+      <a
+        to="/"
+        class="link bg-green mt3 pv2 ph3 bn br2 white tc db dib-ns pointer"
+        @click="authenticateuser()"
+        >Sign In</a
+      >
+      <!-- <p class="submit">
         <input
           type="submit"
           name="commit"
           value="Sign In"
           @click="authenticateuser()"
         />
-      </p>
+      </p> -->
     </form>
   </div>
 </template>
@@ -61,12 +67,31 @@
 <script>
 export default {
   name: "Login",
+  computed: {
+    users() {
+      return this.$store.state.users;
+    },
+  },
   methods: {
     authenticateuser() {
       var uname = document.getElementById("username").value;
       var passwrd = document.getElementById("password").value;
       console.log(uname);
       console.log(passwrd);
+      var userCheck = false;
+      for (const user of this.users) {
+        if (uname.toLowerCase() == user.username.toLowerCase()) {
+          this.$store.dispatch("authenticateUser");
+          console.log("correct ID" + this.$store.state.isAuthenticated);
+          userCheck = true;
+          this.$router.push("/");
+          break;
+        }
+      }
+      if (!userCheck) {
+        // handle incorrect
+        console.log("Incorrect ID " + this.$store.state.isAuthenticated);
+      }
     },
   },
 };
