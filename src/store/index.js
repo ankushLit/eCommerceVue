@@ -3,6 +3,28 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     cart: [],
+    users: [
+      {
+        username: "rsharma6339@conestogac.on.ca",
+        userid: 1,
+        name: "Rajni Sharma",
+        password: "test@123",
+      },
+
+      {
+        username: "akarkar5918@conestogac.on.ca",
+        userid: 1,
+        name: "Ankush Karkar",
+        password: "test@123",
+      },
+
+      {
+        username: "mlingam3499@conestogac.on.ca",
+        userid: 1,
+        name: "Mohan Lingam",
+        password: "test@123",
+      },
+    ],
     products: [
       {
         id: 1,

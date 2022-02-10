@@ -1,31 +1,11 @@
 <template>
-  <!--
-   <div class="login">
-    <h1>This is an Login page</h1>
-  </div> 
-  
-  <form>
-    <h3>Login</h3>
-    <div class="form-group">
-      <label for="username">Email</label>
-      <input type="email" class="form-control" placeholder="Email" />
-    </div>
-
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" class="form-control" placeholder="Password" />
-    </div>
-
-    <button class="btn btn-primary btn-block">Login</button>
-  </form> -->
-
-  <div class="login">
-    <h1>Sign In</h1>
+  <div class="signup">
+    <h1>Sign Up</h1>
     <form>
       <p>
         <input
           type="text"
-          name="login"
+          name="name"
           value=""
           id="username"
           placeholder="Username or Email"
@@ -40,17 +20,12 @@
           placeholder="Password"
         />
       </p>
-      <p class="remember_me">
-        <label>
-          <input type="checkbox" name="remember_me" id="remember_me" />
-          Remember me on this computer?
-        </label>
-      </p>
+
       <p class="submit">
         <input
           type="submit"
           name="commit"
-          value="Sign In"
+          value="Sign Up"
           @click="authenticateuser()"
         />
       </p>
@@ -60,7 +35,7 @@
 
 <script>
 export default {
-  name: "Login",
+  name: "Signup",
   methods: {
     authenticateuser() {
       var uname = document.getElementById("username").value;
@@ -73,7 +48,7 @@ export default {
 </script>
 
 <style scoped>
-.login {
+.signup {
   position: relative;
   margin: 30px auto;
   padding: 20px 20px 20px;
@@ -82,7 +57,7 @@ export default {
   border-radius: 3px;
 }
 
-.login h1 {
+.signup h1 {
   margin: -20px -20px 21px;
   line-height: 40px;
   font-size: 15px;
@@ -101,42 +76,24 @@ export default {
   box-shadow: 0 1px whitesmoke;
 }
 
-.login p {
+.signup p {
   margin: 20px 0 0;
 }
 
-.login p:first-child {
+.signup p:first-child {
   margin-top: 0;
 }
 
-.login input[type="text"],
-.login input[type="password"] {
+.signup input[type="text"],
+.signup input[type="password"] {
   width: 278px;
 }
 
-.login p.remember_me {
-  float: left;
-  line-height: 31px;
-}
-
-.login p.remember_me label {
-  font-size: 12px;
-  color: #777;
-  cursor: pointer;
-}
-
-.login p.remember_me input {
-  position: relative;
-  bottom: 1px;
-  margin-right: 4px;
-  vertical-align: middle;
-}
-
-.login p.submit {
+.signup p.submit {
   text-align: right;
 }
 
-.login-help {
+.signup-help {
   margin: 20px 0;
   font-size: 11px;
   color: white;
@@ -144,12 +101,12 @@ export default {
   text-shadow: 0 1px #2a85a1;
 }
 
-.login-help a {
+.signup-help a {
   color: #cce7fa;
   text-decoration: none;
 }
 
-.login-help a:hover {
+.signup-help a:hover {
   text-decoration: underline;
 }
 
