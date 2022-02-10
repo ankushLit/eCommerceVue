@@ -6,7 +6,7 @@
         <input
           type="text"
           name="shippingaddress"
-          value=""
+          v-bind:value="userAddress"
           id="shippingaddress"
           placeholder="Shipping Address"
         />
@@ -32,11 +32,27 @@
 <script>
 export default {
   name: "Account",
-  getters: {},
+  computed: {
+    userAddress() {
+      for (var i = 0; i < this.$store.state.users.length; i++) {
+        if (this.$store.state.authUid == this.$store.state.users[i].userid) {
+          return this.$store.state.users[i].shippingaddress;
+        }
+      }
+      return "";
+    },
+  },
   methods: {
     updateaddress() {
       var shippingaddress = document.getElementById("shippingaddress").value;
       console.log(shippingaddress);
+      for (var i = 0; i < this.$store.state.users.length; i++) {
+        if (this.$store.state.authUid == this.$store.state.users[i].userid) {
+          console.log("Address updated");
+          alert("Address updated");
+          this.$store.state.users[i].shippingaddress = shippingaddress;
+        }
+      }
     },
   },
 };

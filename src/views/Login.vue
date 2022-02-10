@@ -62,6 +62,7 @@
         />
       </p> -->
     </form>
+    <div id="msg"></div>
   </div>
 </template>
 
@@ -81,7 +82,10 @@ export default {
       console.log(passwrd);
       var userCheck = false;
       for (const user of this.users) {
-        if (uname.toLowerCase() == user.username.toLowerCase()) {
+        if (
+          uname.toLowerCase() == user.username.toLowerCase() &&
+          passwrd == user.password
+        ) {
           this.$store.dispatch("authenticateUser");
           this.$store.state.authUid = user.userid;
           console.log("correct ID" + this.$store.state.isAuthenticated);
@@ -92,15 +96,7 @@ export default {
       }
       if (!userCheck) {
         // handle incorrect
-        var div = document.createElement("div");
-        div.innerText = "Wrong Credentials!!";
-        div.className = "error";
-        div.id = "box";
-        //container.insertBefore(div, form);
-
-        /*setTimeout(function () {
-          document.querySelector("#box").remove();
-        }, 3000);*/
+        alert("Incorect Id or password");
         console.log("Incorrect ID " + this.$store.state.isAuthenticated);
       }
     },
