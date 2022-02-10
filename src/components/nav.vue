@@ -5,16 +5,16 @@
         E-Commerce Store
       </h1>
       <nav class="bt bb tc center justify-between">
-        <a
-          class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pv3 ph2 ph4-l"
-          ><router-link class="link black relative" to="/"
-            >&#x2022; Home &#x2022;</router-link
-          >
-        </a>
-        <a
-          class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pv3 ph2 ph4-l"
+        <router-link class="link black relative" to="/">
+          <a
+            class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pv3 ph2 ph4-l"
+            >&#x2022; Home &#x2022;
+          </a></router-link
         >
-          <router-link class="link black relative" to="/cart">
+        <router-link class="link black relative" to="/cart">
+          <a
+            class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pv3 ph2 ph4-l"
+          >
             <div v-if="totalCartItems == 0">&#x2022; Cart &#x2022;</div>
             <div v-if="totalCartItems != 0">
               &#x2022; Cart
@@ -22,39 +22,39 @@
                 >{{ totalCartItems }} &#x2022;</span
               >
             </div>
-          </router-link>
-        </a>
-        <a
-          v-if="isAuthenticated"
-          class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pv3 ph2 ph4-l pointer"
+          </a>
+        </router-link>
+        <router-link class="link black relative" to="/orderhistory">
+          <a
+            v-if="isAuthenticated"
+            class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pv3 ph2 ph4-l pointer"
+          >
+            &#x2022; Order History &#x2022;
+          </a></router-link
         >
-          <router-link class="link black relative" to="/orderhistory"
-            >&#x2022; Order History &#x2022;</router-link
-          ></a
-        >
-        <a
-          v-if="isAuthenticated"
-          class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pv3 ph2 ph4-l pointer"
-        >
-          <router-link class="link black relative" to="/account"
-            >&#x2022; Address &#x2022;</router-link
-          ></a
+        <router-link class="link black relative" to="/account"
+          ><a
+            v-if="isAuthenticated"
+            class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pv3 ph2 ph4-l pointer"
+          >
+            &#x2022; Address &#x2022;</a
+          ></router-link
         >
         <a
           v-if="isAuthenticated"
           @click="logout()"
           class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pv3 ph2 ph4-l pointer"
         >
-          Logout</a
+          &#x2022;Logout&#x2022;</a
         >
-        <a
-          v-if="!isAuthenticated"
-          class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pv3 ph2 ph4-l pointer"
-        >
-          <router-link class="link black relative" to="/login"
-            >&#x2022; Login &#x2022;</router-link
+        <router-link class="link black relative" to="/login">
+          <a
+            v-if="!isAuthenticated"
+            class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pv3 ph2 ph4-l pointer"
           >
-        </a>
+            &#x2022; Login &#x2022;
+          </a></router-link
+        >
       </nav>
     </header>
   </div>
@@ -73,6 +73,7 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch("authenticateUser");
+      this.$router.push("/");
     },
   },
 };
