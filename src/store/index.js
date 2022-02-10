@@ -305,15 +305,15 @@ export default createStore({
     removeCartProducts(context) {
       context.commit("removeAllProducts");
     },
-
-    pushProductToOrders(context, products, userId) {
+    pushProductsToOrders(context, products) {
+      console.log(products);
       var today = new Date();
       var dd = String(today.getDate()).padStart(2, "0");
       var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
       var yyyy = today.getFullYear();
       today = mm + "/" + dd + "/" + yyyy;
       for (var i = 0; i < this.state.users.length; i++) {
-        if (this.state.users[i].userId == userId) {
+        if (this.state.users[i].userid == this.state.authUid) {
           this.state.users[i].orders.push({
             orderId: Math.random(),
             date: today,

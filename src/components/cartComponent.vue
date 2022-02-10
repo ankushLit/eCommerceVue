@@ -97,7 +97,7 @@ export default {
   },
   methods: {
     placeOrder() {
-      this.$store.dispatch("pushProductToOrders", this.products, this.uid);
+      this.$store.dispatch("pushProductToOrders", this.products);
     },
     removeProduct(product) {
       this.$store.dispatch("removeProduct", product);

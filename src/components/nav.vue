@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="black-80 tc pt4 avenir" style="background: #d11d7a70">
+    <header class="black-80 tc pt4 avenir bg-light-red">
       <h1 class="mt2 mb0 baskerville i fw1 f1 mh2" style="color: #fe0083">
         E-Commerce Store
       </h1>
