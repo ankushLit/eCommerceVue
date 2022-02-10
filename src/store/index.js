@@ -5,6 +5,7 @@ export default createStore({
     selectedProductId: 0,
     cart: [],
     isAuthenticated: false,
+    authUid: 0,
     users: [
       {
         username: "rsharma6339@conestogac.on.ca",
@@ -17,13 +18,32 @@ export default createStore({
             date: "02/15/2022",
             items: [
               {
-                productid: 1,
+                id: 1,
                 name: "Gluten Free Lipstic",
                 price: "21",
                 img: "https://m.media-amazon.com/images/I/51o0cDiIQ7L._SL1000_.jpg",
                 quantity: 2,
                 rating: 3,
-                comment: "Hello",
+                comment: {
+                  id: 1,
+                  date: "02/16/2021",
+                  text: "hello",
+                },
+              },
+            ],
+          },
+          {
+            orderId: 2,
+            date: "02/15/2022",
+            items: [
+              {
+                id: 1,
+                name: "Gluten Free Lipstic",
+                price: "21",
+                img: "https://m.media-amazon.com/images/I/51o0cDiIQ7L._SL1000_.jpg",
+                quantity: 2,
+                rating: 0,
+                comment: null,
               },
             ],
           },
@@ -32,31 +52,15 @@ export default createStore({
 
       {
         username: "akarkar5918@conestogac.on.ca",
-        userid: 1,
+        userid: 2,
         name: "Ankush Karkar",
         password: "test@123",
-        orders: [
-          {
-            orderId: 1,
-            date: "02/15/2022",
-            items: [
-              {
-                productid: 1,
-                name: "Gluten Free Lipstic",
-                price: "21",
-                img: "https://m.media-amazon.com/images/I/51o0cDiIQ7L._SL1000_.jpg",
-                quantity: 2,
-                rating: 3,
-                comment: "Hello",
-              },
-            ],
-          },
-        ],
+        orders: [],
       },
 
       {
         username: "mlingam3499@conestogac.on.ca",
-        userid: 1,
+        userid: 3,
         name: "Mohan Lingam",
         password: "test@123",
         orders: [
@@ -65,7 +69,7 @@ export default createStore({
             date: "02/15/2022",
             items: [
               {
-                productid: 1,
+                id: 1,
                 name: "Gluten Free Lipstic",
                 price: "21",
                 img: "https://m.media-amazon.com/images/I/51o0cDiIQ7L._SL1000_.jpg",
@@ -301,24 +305,114 @@ export default createStore({
     removeCartProducts(context) {
       context.commit("removeAllProducts");
     },
+
+    pushProductToOrders(context, products, userId) {
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, "0");
+      var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+      var yyyy = today.getFullYear();
+      today = mm + "/" + dd + "/" + yyyy;
+      for (var i = 0; i < this.state.users.length; i++) {
+        if (this.state.users[i].userId == userId) {
+          this.state.users[i].orders.push({
+            orderId: Math.random(),
+            date: today,
+            items: products,
+          });
+        }
+      }
+    },
+    addComment(context, orderPackage) {
+      for (var x = 0; x < this.state.users.length; x++) {
+        if (this.state.authUid == this.state.users[x].userid) {
+          for (var i = 0; i < this.state.users[x].orders.length; i++) {
+            if (this.state.users[x].orders[i].orderId == orderPackage.orderid) {
+              for (
+                var j = 0;
+                j < this.state.users[x].orders[i].items.length;
+                j++
+              ) {
+                console.log(j);
+                if (
+                  this.state.users[x].orders[i].items[j].id ==
+                  orderPackage.productid
+                ) {
+                  const indexPackage = {
+                    userIndex: x,
+                    orderIndex: i,
+                    productIndex: j,
+                    comment: orderPackage.comment,
+                  };
+                  const commentPackage = {
+                    productid: orderPackage.productid,
+                    comment: orderPackage.comment,
+                    rating: orderPackage.rating,
+                  };
+                  context.commit("addCommentTouser", indexPackage);
+                  context.commit("addCommentToProduct", commentPackage);
+                  break;
+                }
+              }
+              break;
+            }
+          }
+          break;
+        }
+      }
+    },
   },
   mutations: {
-    // pushProductToOrders(state, products, userId) {
-    //   state.orders.push({
-    //     userid: product.id,
-    //     quantity: 1,
-    //     name: product.name,
-    //     price: product.price,
-    //     newQuantityInStock: product.quantityInStock,
-    //   });
-    // },
+    addCommentToProduct(state, commentPackage) {
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, "0");
+      var mm = String(today.getMonth() + 1).padStart(2, "0");
+      var yyyy = today.getFullYear();
+      today = mm + "/" + dd + "/" + yyyy;
+      var user;
+      for (var x = 0; x < state.users.length; x++) {
+        if (state.authUid == state.users[x].userid) {
+          user = state.users[x];
+          break;
+        }
+      }
+
+      for (var i = 0; i < state.products.length; i++) {
+        if (commentPackage.productid == state.products[i].id) {
+          state.products[i].comments.push({
+            name: user.name,
+            date: today,
+            rating: commentPackage.rating,
+            comment: commentPackage.comment,
+          });
+          break;
+        }
+      }
+    },
+    addCommentTouser(state, indexPackage) {
+      console.log(indexPackage);
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, "0");
+      var mm = String(today.getMonth() + 1).padStart(2, "0");
+      var yyyy = today.getFullYear();
+      today = mm + "/" + dd + "/" + yyyy;
+      state.users[indexPackage.userIndex].orders[indexPackage.orderIndex].items[
+        indexPackage.productIndex
+      ].comment = {
+        id: Math.random(),
+        date: today,
+        text: indexPackage.comment,
+      };
+    },
     pushProductToCart(state, product) {
       state.cart.push({
         id: product.id,
         quantity: 1,
+        img: product.img,
         name: product.name,
         price: product.price,
         newQuantityInStock: product.quantityInStock,
+        rating: 0,
+        comment: null,
       });
     },
     removeProductFromCart(state) {

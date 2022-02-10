@@ -79,6 +79,9 @@
 export default {
   name: "CartComponent",
   computed: {
+    uid() {
+      return this.$store.state.authUid;
+    },
     products() {
       return this.$store.getters.cartProducts;
     },
@@ -93,7 +96,9 @@ export default {
     },
   },
   methods: {
-    placeOrder() {},
+    placeOrder() {
+      this.$store.dispatch("pushProductToOrders", this.products, this.uid);
+    },
     removeProduct(product) {
       this.$store.dispatch("removeProduct", product);
     },
