@@ -51,7 +51,7 @@
             <hr />
             <!-- comment adding section -->
             <div v-if="product.comment == null" class="flex justify-around ph3">
-              <div class="w-25 pv3 mr2 fl">
+              <div class="w-100 pv3 mr2 fl">
                 <textarea
                   class="w-100"
                   type="text"
@@ -61,7 +61,7 @@
                   placeholder="Comment"
                 />
               </div>
-              <div class="w-25 pv3 mr2">
+              <div class="w-50 pv3 mr2">
                 <span class="fl"
                   >Rating<input
                     v-model.number="product.rating"
@@ -72,7 +72,7 @@
                     class="form-control w-25 d-block ma2"
                 /></span>
               </div>
-              <div class="w-25 pv3 mr2">
+              <div class="w-50 pv3 mr2">
                 <a
                   to="/"
                   class="link bg-green pv2 ph3 bn br2 white tc db dib-ns pointer ma2 fl"
