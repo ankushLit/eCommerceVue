@@ -43,14 +43,14 @@
 
       <a
         to="/"
-        class="link bg-green mt3 pv2 ph3 bn br2 white tc db dib-ns pointer"
+        class="link bg-hot-pink ml2 mr2 mt3 pv2 ph3 bn br2 white tc db dib-ns pointer"
         @click="authenticateuser()"
         >Sign In</a
       >
 
       <router-link
         to="/signup"
-        class="link bg-green mt3 pv2 ph3 bn br2 white tc db dib-ns pointer"
+        class="link bg-purple mt3 pv2 ph3 bn br2 white tc db dib-ns pointer"
         >Sign Up</router-link
       >
       <!-- <p class="submit">
@@ -96,8 +96,13 @@ export default {
       }
       if (!userCheck) {
         // handle incorrect
-        alert("Incorect Id or password");
+        //alert("Incorect Id or password");
+        //var div = document.getElementById("msg").value;
+        document.getElementById("msg").className = "error";
+        document.getElementById("msg").innerHTML = "Incorect Id or Password";
         console.log("Incorrect ID " + this.$store.state.isAuthenticated);
+      } else {
+        document.getElementById("msg").innerHTML = "";
       }
     },
   },

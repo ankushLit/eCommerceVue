@@ -42,7 +42,7 @@
       </p>
       <a
         to="/"
-        class="link bg-green mt3 pv2 ph3 bn br2 white tc db dib-ns pointer"
+        class="link bg-purple mt3 pv2 ph3 bn br2 white tc db dib-ns pointer"
         @click="adduser()"
         >Sign Up</a
       >
