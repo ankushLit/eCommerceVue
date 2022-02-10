@@ -37,7 +37,8 @@
           id="shippingaddress"
           placeholder="Shipping Address"
         /> -->
-        <textarea rows="5" name="shippingaddress"> </textarea>
+        <textarea rows="5" id="shippingaddress" name="shippingaddress">
+        </textarea>
       </p>
       <a
         to="/"
@@ -51,20 +52,26 @@
 
 <script>
 export default {
-  name: "Signup",
+  name: "SignUp",
   methods: {
     adduser() {
       var uname = document.getElementById("username").value;
       var fname = document.getElementById("fullname").value;
       var passwrd = document.getElementById("password").value;
+      var shippingaddress = document.getElementById("shippingaddress").value;
       this.$store.state.users.push({
         username: uname,
         userid: Math.random(),
         name: fname,
         password: passwrd,
+        shippingaddress: shippingaddress,
         orders: [],
       });
-      console.log(uname);
+      this.$store.dispatch("authenticateUser");
+      this.$store.state.authUid =
+        this.$store.state.users[this.$store.state.users.length - 1].userid;
+      this.$router.push("/");
+      console.log(this.$store.state.users);
       console.log(fname);
       console.log(passwrd);
     },

@@ -34,6 +34,14 @@
         >
         <a
           v-if="isAuthenticated"
+          class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pv3 ph2 ph4-l pointer"
+        >
+          <router-link class="link black relative" to="/account"
+            >&#x2022; Account &#x2022;</router-link
+          ></a
+        >
+        <a
+          v-if="isAuthenticated"
           @click="logout()"
           class="f6 f5-l link bg-animate black-80 hover-bg-light-pink dib pv3 ph2 ph4-l pointer"
         >

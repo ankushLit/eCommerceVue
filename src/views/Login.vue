@@ -47,6 +47,12 @@
         @click="authenticateuser()"
         >Sign In</a
       >
+
+      <router-link
+        to="/signup"
+        class="link bg-green mt3 pv2 ph3 bn br2 white tc db dib-ns pointer"
+        >Sign Up</router-link
+      >
       <!-- <p class="submit">
         <input
           type="submit"

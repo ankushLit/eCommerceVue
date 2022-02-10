@@ -23,7 +23,7 @@
         to="/"
         class="link bg-green mt3 pv2 ph3 bn br2 white tc db dib-ns pointer"
         @click="updateaddress()"
-        >Sign In</a
+        >Update</a
       >
     </form>
   </div>
@@ -31,10 +31,11 @@
 
 <script>
 export default {
-  name: "account",
+  name: "Account",
+  getters: {},
   methods: {
     updateaddress() {
-      var uname = document.getElementById("shippingaddress").value;
+      var shippingaddress = document.getElementById("shippingaddress").value;
       console.log(shippingaddress);
     },
   },
