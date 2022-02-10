@@ -97,7 +97,8 @@ export default {
   },
   methods: {
     placeOrder() {
-      this.$store.dispatch("pushProductToOrders", this.products);
+      this.$store.dispatch("pushProductsToOrders", this.products);
+      this.$router.push("/");
     },
     removeProduct(product) {
       this.$store.dispatch("removeProduct", product);

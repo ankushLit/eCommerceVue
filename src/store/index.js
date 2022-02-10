@@ -19,6 +19,7 @@ export default createStore({
             date: "02/15/2022",
             items: [
               {
+                itemId: 1,
                 id: 1,
                 name: "Gluten Free Lipstic",
                 price: "21",
@@ -38,6 +39,7 @@ export default createStore({
             date: "02/15/2022",
             items: [
               {
+                itemId: 1,
                 id: 1,
                 name: "Gluten Free Lipstic",
                 price: "21",
@@ -72,6 +74,7 @@ export default createStore({
             date: "02/15/2022",
             items: [
               {
+                itemId: 1,
                 id: 1,
                 name: "Gluten Free Lipstic",
                 price: "21",
@@ -318,10 +321,18 @@ export default createStore({
       for (var i = 0; i < this.state.users.length; i++) {
         if (this.state.users[i].userid == this.state.authUid) {
           this.state.users[i].orders.push({
-            orderId: Math.random(),
+            orderId: Math.floor(Math.random() * (100000 - 1) + 1),
             date: today,
             items: products,
           });
+          console.log(this.state.users[i].orders);
+          alert(
+            "Your order will be shipped to " +
+              this.state.users[i].shippingaddress
+          );
+          context.commit("removeAllProducts");
+
+          break;
         }
       }
     },
@@ -401,13 +412,14 @@ export default createStore({
       state.users[indexPackage.userIndex].orders[indexPackage.orderIndex].items[
         indexPackage.productIndex
       ].comment = {
-        id: Math.random(),
+        id: Math.floor(Math.random() * (100000 - 1) + 1),
         date: today,
         text: indexPackage.comment,
       };
     },
     pushProductToCart(state, product) {
       state.cart.push({
+        itemId: Math.random(),
         id: product.id,
         quantity: 1,
         img: product.img,

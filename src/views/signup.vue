@@ -61,7 +61,7 @@ export default {
       var shippingaddress = document.getElementById("shippingaddress").value;
       this.$store.state.users.push({
         username: uname,
-        userid: Math.random(),
+        userid: Math.floor(Math.random() * (100000 - 1) + 1),
         name: fname,
         password: passwrd,
         shippingaddress: shippingaddress,
