@@ -303,15 +303,15 @@ export default createStore({
     },
   },
   mutations: {
-    pushProductToCart(state, products, userId) {
-      state.orders.push({
-        userid: product.id,
-        quantity: 1,
-        name: product.name,
-        price: product.price,
-        newQuantityInStock: product.quantityInStock,
-      });
-    },
+    // pushProductToOrders(state, products, userId) {
+    //   state.orders.push({
+    //     userid: product.id,
+    //     quantity: 1,
+    //     name: product.name,
+    //     price: product.price,
+    //     newQuantityInStock: product.quantityInStock,
+    //   });
+    // },
     pushProductToCart(state, product) {
       state.cart.push({
         id: product.id,
