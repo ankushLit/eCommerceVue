@@ -1,6 +1,6 @@
 <template>
   <div class="account">
-    <h1>User Account</h1>
+    <h1>Update Address</h1>
     <form>
       <p>
         <input
@@ -11,20 +11,14 @@
           placeholder="Shipping Address"
         />
       </p>
-      <!-- <p class="submit">
-        <input
-          type="submit"
-          name="commit"
-          value="Update"
-          @click="updateaddress()"
-        /> 
-      </p> -->
+
       <a
         to="/"
-        class="link bg-green mt3 pv2 ph3 bn br2 white tc db dib-ns pointer"
+        class="link bg-hot-pink mt3 pv2 ph3 bn br2 white tc db dib-ns pointer"
         @click="updateaddress()"
         >Update</a
       >
+      <div id="msg"></div>
     </form>
   </div>
 </template>
@@ -48,8 +42,9 @@ export default {
       console.log(shippingaddress);
       for (var i = 0; i < this.$store.state.users.length; i++) {
         if (this.$store.state.authUid == this.$store.state.users[i].userid) {
-          console.log("Address updated");
-          alert("Address updated");
+          document.getElementById("msg").className = "success";
+          document.getElementById("msg").innerHTML = "Address updated";
+          console.log("Incorrect ID " + this.$store.state.isAuthenticated);
           this.$store.state.users[i].shippingaddress = shippingaddress;
         }
       }
@@ -59,6 +54,13 @@ export default {
 </script>
 
 <style scoped>
+.success {
+  color: white;
+  padding: 5px;
+  margin: 5px 5px 15px 0;
+  background: green;
+}
+
 .account {
   position: relative;
   margin: 30px auto;
