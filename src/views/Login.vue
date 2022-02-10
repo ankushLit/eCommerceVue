@@ -77,6 +77,7 @@ export default {
       for (const user of this.users) {
         if (uname.toLowerCase() == user.username.toLowerCase()) {
           this.$store.dispatch("authenticateUser");
+          this.$store.state.authUid = user.userid;
           console.log("correct ID" + this.$store.state.isAuthenticated);
           userCheck = true;
           this.$router.push("/");
