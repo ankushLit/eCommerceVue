@@ -29,7 +29,29 @@ export default createStore({
       }],
       
       comment:""
-    }
+    }],
+    isAuthenticated: false,
+    users: [
+      {
+        username: "rsharma6339@conestogac.on.ca",
+        userid: 1,
+        name: "Rajni Sharma",
+        password: "test@123",
+      },
+
+      {
+        username: "akarkar5918@conestogac.on.ca",
+        userid: 1,
+        name: "Ankush Karkar",
+        password: "test@123",
+      },
+
+      {
+        username: "mlingam3499@conestogac.on.ca",
+        userid: 1,
+        name: "Mohan Lingam",
+        password: "test@123",
+      },
     ],
     products: [
       {
@@ -112,6 +134,9 @@ export default createStore({
     },
   },
   actions: {
+    authenticateUser() {
+      this.state.isAuthenticated = !this.state.isAuthenticated;
+    },
     addProductToCart(context, product) {
       if (product.quantityInStock > 0) {
         const cartItem = context.state.cart.find(

@@ -32,7 +32,10 @@
               </td>
               <td class="pa3">${{ product.price * product.quantity }}</td>
               <td class="pa3">
-                <a class="red" @click="removeProduct(product)" id="delete-item"
+                <a
+                  class="red pointer"
+                  @click="removeProduct(product)"
+                  id="delete-item"
                   >X</a
                 >
               </td>
@@ -49,12 +52,25 @@
             <span class="green fw6 mr2">Total:</span>${{ total }}
           </p>
         </div>
-        <router-link
-          to="/"
-          class="link bg-green mt3 pv2 ph3 bn br2 white tc db dib-ns"
-          ><i class="fas fa-space-shuttle mr2"></i>Continue
-          Shopping</router-link
-        >
+        <div class="flex justify-between">
+          <router-link
+            to="/"
+            class="link bg-green mt3 pv2 ph3 bn br2 white dib-ns"
+            >Continue Shopping</router-link
+          >
+          <router-link
+            v-if="!isAuthenticated"
+            to="/login"
+            class="link bg-pink mt3 pv2 ph3 bn br2 white dib-ns"
+            >Login to order</router-link
+          >
+          <a
+            v-if="isAuthenticated && totalCartItems > 0"
+            class="link bg-green mt3 pv2 ph3 bn br2 white dib-ns pointer"
+            @click="placeOrder()"
+            >Place Order</a
+          >
+        </div>
       </div>
     </div>
   </div>
@@ -69,8 +85,17 @@ export default {
     total() {
       return this.$store.getters.cartTotal;
     },
+    isAuthenticated() {
+      return this.$store.state.isAuthenticated;
+    },
+    totalCartItems() {
+      return this.$store.getters.cartItems;
+    },
   },
   methods: {
+    placeOrder() {
+      //handle order
+    },
     removeProduct(product) {
       this.$store.dispatch("removeProduct", product);
     },
