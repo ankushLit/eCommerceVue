@@ -93,9 +93,7 @@ export default {
     },
   },
   methods: {
-    placeOrder() {
-      //handle order
-    },
+    placeOrder() {},
     removeProduct(product) {
       this.$store.dispatch("removeProduct", product);
     },

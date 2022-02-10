@@ -2,7 +2,8 @@
   <div class="mh7">
     <div v-for="product in products" :key="product.id" class="dib">
       <article
-        class="br2 ba dark-gray b--black-10 mv3 w-100 w-90-m w-90-l mw5 center"
+        class="br2 ba dark-gray b--black-10 mv3 w-100 w-90-m w-90-l mw5 center pointer"
+        @click="goToProduts(product.id)"
       >
         <img v-bind:src="product.img" />
         <div class="pa2 ph3-ns pb3-ns bg-washed-red">
@@ -36,6 +37,10 @@ export default {
     },
   },
   methods: {
+    goToProduts(productId) {
+      this.$store.state.selectedProductId = productId;
+      this.$router.push("/productdetails");
+    },
     addProductToCart(product) {
       this.$store.dispatch("addProductToCart", product);
     },

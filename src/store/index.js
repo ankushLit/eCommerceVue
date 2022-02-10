@@ -2,34 +2,8 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
+    selectedProductId: 0,
     cart: [],
-    orders:[{
-      orderid: "1",
-      item:[{
-        itemid:"1",
-        qty:"1",
-      comment:""
-      },{
-        itemid:"3",
-        qty:"2",
-      comment:""
-      }],
-      
-      comment:""
-    },{
-      orderid: "2",
-      item:[{
-        itemid:"1",
-        qty:"1",
-      comment:""
-      },{
-        itemid:"3",
-        qty:"2",
-      comment:""
-      }],
-      
-      comment:""
-    }],
     isAuthenticated: false,
     users: [
       {
@@ -37,6 +11,23 @@ export default createStore({
         userid: 1,
         name: "Rajni Sharma",
         password: "test@123",
+        orders: [
+          {
+            orderId: 1,
+            date: "02/15/2022",
+            items: [
+              {
+                productid: 1,
+                name: "Gluten Free Lipstic",
+                price: "21",
+                img: "https://m.media-amazon.com/images/I/51o0cDiIQ7L._SL1000_.jpg",
+                quantity: 2,
+                rating: 3,
+                comment: "Hello",
+              },
+            ],
+          },
+        ],
       },
 
       {
@@ -44,6 +35,23 @@ export default createStore({
         userid: 1,
         name: "Ankush Karkar",
         password: "test@123",
+        orders: [
+          {
+            orderId: 1,
+            date: "02/15/2022",
+            items: [
+              {
+                productid: 1,
+                name: "Gluten Free Lipstic",
+                price: "21",
+                img: "https://m.media-amazon.com/images/I/51o0cDiIQ7L._SL1000_.jpg",
+                quantity: 2,
+                rating: 3,
+                comment: "Hello",
+              },
+            ],
+          },
+        ],
       },
 
       {
@@ -51,6 +59,23 @@ export default createStore({
         userid: 1,
         name: "Mohan Lingam",
         password: "test@123",
+        orders: [
+          {
+            orderId: 1,
+            date: "02/15/2022",
+            items: [
+              {
+                productid: 1,
+                name: "Gluten Free Lipstic",
+                price: "21",
+                img: "https://m.media-amazon.com/images/I/51o0cDiIQ7L._SL1000_.jpg",
+                quantity: 2,
+                rating: 3,
+                comment: "Hello",
+              },
+            ],
+          },
+        ],
       },
     ],
     products: [
@@ -64,6 +89,26 @@ export default createStore({
         brand: "Honeybee Gardens",
         seller: "Amazon",
         quantityInStock: 20,
+        comments: [
+          {
+            name: "Rajni Sharma",
+            date: "02/15/2021",
+            rating: 5,
+            comment: "This product rocks",
+          },
+          {
+            name: "Ankush karkar",
+            date: "02/15/2022",
+            rating: 5,
+            comment: "This product Amazing",
+          },
+          {
+            name: "Mohan Lingam",
+            date: "02/15/2020",
+            rating: 5,
+            comment: "This product yay",
+          },
+        ],
       },
       {
         id: 2,
@@ -74,6 +119,26 @@ export default createStore({
         decription: "Daredevil is a deep teal creme.",
         brand: "Revlon",
         seller: "Nykaa",
+        comments: [
+          {
+            name: "Rajni Sharma",
+            date: "02/15/2021",
+            rating: 5,
+            comment: "This product rocks",
+          },
+          {
+            name: "Ankush karkar",
+            date: "02/15/2022",
+            rating: 5,
+            comment: "This product Amazing",
+          },
+          {
+            name: "Mohan Lingam",
+            date: "02/15/2020",
+            rating: 5,
+            comment: "This product yay",
+          },
+        ],
       },
       {
         id: 3,
@@ -85,6 +150,26 @@ export default createStore({
           "Professional-Grade Beauty Tools That Do No Harm to Animals or the Planet",
         brand: "Luxie",
         seller: "Walmart",
+        comments: [
+          {
+            name: "Rajni Sharma",
+            date: "02/15/2021",
+            rating: 5,
+            comment: "This product rocks",
+          },
+          {
+            name: "Ankush karkar",
+            date: "02/15/2022",
+            rating: 5,
+            comment: "This product Amazing",
+          },
+          {
+            name: "Mohan Lingam",
+            date: "02/15/2020",
+            rating: 5,
+            comment: "This product yay",
+          },
+        ],
       },
       {
         id: 4,
@@ -95,6 +180,26 @@ export default createStore({
         decription: "Kat Von D Tattoo Vegan Liner",
         brand: "Kat Von D",
         seller: "Amazon",
+        comments: [
+          {
+            name: "Rajni Sharma",
+            date: "02/15/2021",
+            rating: 5,
+            comment: "This product rocks",
+          },
+          {
+            name: "Ankush karkar",
+            date: "02/15/2022",
+            rating: 5,
+            comment: "This product Amazing",
+          },
+          {
+            name: "Mohan Lingam",
+            date: "02/15/2020",
+            rating: 5,
+            comment: "This product yay",
+          },
+        ],
       },
       {
         id: 5,
@@ -105,6 +210,26 @@ export default createStore({
         decription: "The Vegan Concealer that Erases Dark Circles",
         brand: "IL Makiage",
         seller: "IL Makiage",
+        comments: [
+          {
+            name: "Rajni Sharma",
+            date: "02/15/2021",
+            rating: 5,
+            comment: "This product rocks",
+          },
+          {
+            name: "Ankush karkar",
+            date: "02/15/2022",
+            rating: 5,
+            comment: "This product Amazing",
+          },
+          {
+            name: "Mohan Lingam",
+            date: "02/15/2020",
+            rating: 5,
+            comment: "This product yay",
+          },
+        ],
       },
       {
         id: 6,
@@ -116,6 +241,26 @@ export default createStore({
           "Sante Organic Natural Vegan Compact Face Powder 02 Neutral Beige 9g Brand NEW",
         brand: "Sante",
         seller: "Amazon",
+        comments: [
+          {
+            name: "Rajni Sharma",
+            date: "02/15/2021",
+            rating: 5,
+            comment: "This product rocks",
+          },
+          {
+            name: "Ankush karkar",
+            date: "02/15/2022",
+            rating: 5,
+            comment: "This product Amazing",
+          },
+          {
+            name: "Mohan Lingam",
+            date: "02/15/2020",
+            rating: 5,
+            comment: "This product yay",
+          },
+        ],
       },
     ],
   },
@@ -158,6 +303,15 @@ export default createStore({
     },
   },
   mutations: {
+    pushProductToCart(state, products, userId) {
+      state.orders.push({
+        userid: product.id,
+        quantity: 1,
+        name: product.name,
+        price: product.price,
+        newQuantityInStock: product.quantityInStock,
+      });
+    },
     pushProductToCart(state, product) {
       state.cart.push({
         id: product.id,
