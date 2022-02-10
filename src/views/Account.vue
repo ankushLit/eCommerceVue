@@ -1,50 +1,29 @@
 <template>
-  <div class="signup">
-    <h1>Sign Up</h1>
+  <div class="account">
+    <h1>User Account</h1>
     <form>
       <p>
         <input
-          type="text"
-          name="fullname"
-          value=""
-          id="fullname"
-          placeholder="Full Name"
-        />
-      </p>
-      <p>
-        <input
-          type="text"
-          name="name"
-          value=""
-          id="username"
-          placeholder="Username or Email"
-        />
-      </p>
-      <p>
-        <input
-          type="password"
-          name="password"
-          value=""
-          id="password"
-          placeholder="Password"
-        />
-      </p>
-      <p>
-        <!-- <input
           type="text"
           name="shippingaddress"
           value=""
           id="shippingaddress"
           placeholder="Shipping Address"
-        /> -->
-        <textarea rows="5" id="shippingaddress" name="shippingaddress">
-        </textarea>
+        />
       </p>
+      <!-- <p class="submit">
+        <input
+          type="submit"
+          name="commit"
+          value="Update"
+          @click="updateaddress()"
+        /> 
+      </p> -->
       <a
         to="/"
         class="link bg-green mt3 pv2 ph3 bn br2 white tc db dib-ns pointer"
-        @click="adduser()"
-        >Sign Up</a
+        @click="updateaddress()"
+        >Update</a
       >
     </form>
   </div>
@@ -52,35 +31,19 @@
 
 <script>
 export default {
-  name: "SignUp",
+  name: "Account",
+  getters: {},
   methods: {
-    adduser() {
-      var uname = document.getElementById("username").value;
-      var fname = document.getElementById("fullname").value;
-      var passwrd = document.getElementById("password").value;
+    updateaddress() {
       var shippingaddress = document.getElementById("shippingaddress").value;
-      this.$store.state.users.push({
-        username: uname,
-        userid: Math.random(),
-        name: fname,
-        password: passwrd,
-        shippingaddress: shippingaddress,
-        orders: [],
-      });
-      this.$store.dispatch("authenticateUser");
-      this.$store.state.authUid =
-        this.$store.state.users[this.$store.state.users.length - 1].userid;
-      this.$router.push("/");
-      console.log(this.$store.state.users);
-      console.log(fname);
-      console.log(passwrd);
+      console.log(shippingaddress);
     },
   },
 };
 </script>
 
 <style scoped>
-.signup {
+.account {
   position: relative;
   margin: 30px auto;
   padding: 20px 20px 20px;
@@ -89,7 +52,7 @@ export default {
   border-radius: 3px;
 }
 
-.signup h1 {
+.account h1 {
   margin: -20px -20px 21px;
   line-height: 40px;
   font-size: 15px;
@@ -108,38 +71,20 @@ export default {
   box-shadow: 0 1px whitesmoke;
 }
 
-.signup p {
+.account p {
   margin: 20px 0 0;
 }
 
-.signup p:first-child {
+.account p:first-child {
   margin-top: 0;
 }
 
-.signup input[type="text"],
-.signup input[type="password"] {
+.account input[type="text"] {
   width: 278px;
 }
 
-.signup p.submit {
+.account p.submit {
   text-align: right;
-}
-
-.signup-help {
-  margin: 20px 0;
-  font-size: 11px;
-  color: white;
-  text-align: center;
-  text-shadow: 0 1px #2a85a1;
-}
-
-.signup-help a {
-  color: #cce7fa;
-  text-decoration: none;
-}
-
-.signup-help a:hover {
-  text-decoration: underline;
 }
 
 :-moz-placeholder {
@@ -157,8 +102,7 @@ input {
   font-size: 14px;
 }
 
-input[type="text"],
-input[type="password"] {
+input[type="text"] {
   margin: 5px;
   padding: 0 10px;
   width: 200px;
@@ -174,8 +118,7 @@ input[type="password"] {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="text"]:focus {
   border-color: #7dc9e2;
   outline-color: #dceefc;
   outline-offset: 0;
@@ -211,8 +154,7 @@ input[type="submit"]:active {
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
-.lt-ie9 input[type="text"],
-.lt-ie9 input[type="password"] {
+.lt-ie9 input[type="text"] {
   line-height: 34px;
 }
 </style>

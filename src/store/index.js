@@ -12,6 +12,7 @@ export default createStore({
         userid: 1,
         name: "Rajni Sharma",
         password: "test@123",
+        shippingaddress: "776 Paris Blavd, Waterloo ON N2T2Y1",
         orders: [
           {
             orderId: 1,
@@ -27,7 +28,7 @@ export default createStore({
                 comment: {
                   id: 1,
                   date: "02/16/2021",
-                  text: "hello",
+                  text: "Not bad product",
                 },
               },
             ],
@@ -55,6 +56,7 @@ export default createStore({
         userid: 2,
         name: "Ankush Karkar",
         password: "test@123",
+        shippingaddress: "123 Erbsville Rd, Waterloo ON N2T2Y7",
         orders: [],
       },
 
@@ -63,6 +65,7 @@ export default createStore({
         userid: 3,
         name: "Mohan Lingam",
         password: "test@123",
+        shippingaddress: "789 Erbsville Rd, Waterloo ON N2T2Y7",
         orders: [
           {
             orderId: 1,

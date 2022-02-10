@@ -40,17 +40,18 @@
           placeholder="Password"
         />
       </p>
-      <p class="remember_me">
-        <label>
-          <input type="checkbox" name="remember_me" id="remember_me" />
-          Remember me on this computer?
-        </label>
-      </p>
+
       <a
         to="/"
         class="link bg-green mt3 pv2 ph3 bn br2 white tc db dib-ns pointer"
         @click="authenticateuser()"
         >Sign In</a
+      >
+
+      <router-link
+        to="/signup"
+        class="link bg-green mt3 pv2 ph3 bn br2 white tc db dib-ns pointer"
+        >Sign Up</router-link
       >
       <!-- <p class="submit">
         <input
@@ -91,6 +92,15 @@ export default {
       }
       if (!userCheck) {
         // handle incorrect
+        var div = document.createElement("div");
+        div.innerText = "Wrong Credentials!!";
+        div.className = "error";
+        div.id = "box";
+        //container.insertBefore(div, form);
+
+        /*setTimeout(function () {
+          document.querySelector("#box").remove();
+        }, 3000);*/
         console.log("Incorrect ID " + this.$store.state.isAuthenticated);
       }
     },
@@ -99,6 +109,13 @@ export default {
 </script>
 
 <style scoped>
+.error {
+  color: white;
+  padding: 5px;
+  margin: 5px 0 15px 0;
+  background: red;
+}
+
 .login {
   position: relative;
   margin: 30px auto;
@@ -138,24 +155,6 @@ export default {
 .login input[type="text"],
 .login input[type="password"] {
   width: 278px;
-}
-
-.login p.remember_me {
-  float: left;
-  line-height: 31px;
-}
-
-.login p.remember_me label {
-  font-size: 12px;
-  color: #777;
-  cursor: pointer;
-}
-
-.login p.remember_me input {
-  position: relative;
-  bottom: 1px;
-  margin-right: 4px;
-  vertical-align: middle;
 }
 
 .login p.submit {
