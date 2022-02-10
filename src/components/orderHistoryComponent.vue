@@ -32,7 +32,7 @@
             class="bg-light-gray"
           >
             <!-- product details section -->
-            <div class="flex justify-around ph3">
+            <div class="flex justify-around ph3 bg-washed-yellow">
               <div class="w-25 pv3 mr2">
                 <span class="fl tl">{{ product.name }}</span>
               </div>
@@ -48,9 +48,11 @@
                 >
               </div>
             </div>
-            <hr />
             <!-- comment adding section -->
-            <div v-if="product.comment == null" class="flex justify-around ph3">
+            <div
+              v-if="product.comment == null"
+              class="flex justify-around ph3 bg-washed-blue"
+            >
               <div class="w-100 pv3 mr2 fl">
                 <textarea
                   class="w-100"

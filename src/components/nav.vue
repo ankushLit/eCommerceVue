@@ -1,8 +1,8 @@
 <template>
   <div>
-    <header class="black-80 tc pt4 avenir bg-light-red">
+    <header class="black-80 tc pt4 avenir bg-washed-red">
       <h1 class="mt2 mb0 baskerville i fw1 f1 mh2" style="color: #fe0083">
-        E-Commerce Store
+        E-VeganFashion Store
       </h1>
       <nav class="bt bb tc center justify-between">
         <router-link class="link black relative" to="/">
