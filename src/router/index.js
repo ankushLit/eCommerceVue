@@ -20,6 +20,11 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import("../views/Cart.vue"),
   },
+  {
+    path: "/productdetails",
+    name: "ProductDetails",
+    component: () => import("../views/ProductDetails.vue"),
+  },
 ];
 
 const router = createRouter({

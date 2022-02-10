@@ -22,10 +22,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background: lightpink;
+  align-items: stretch ;
+  display: flex-column
 }
 
 #nav {
-  padding: 30px;
+  padding: 0px;
 }
 
 #nav a {
