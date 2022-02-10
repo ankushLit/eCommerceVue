@@ -11,6 +11,7 @@ export default createStore({
         userid: 1,
         name: "Rajni Sharma",
         password: "test@123",
+        shippingaddress: "776 Paris Blavd, Waterloo ON N2T2Y1",
         orders: [
           {
             orderId: 1,
@@ -23,7 +24,7 @@ export default createStore({
                 img: "https://m.media-amazon.com/images/I/51o0cDiIQ7L._SL1000_.jpg",
                 quantity: 2,
                 rating: 3,
-                comment: "Hello",
+                comment: "Not bad product",
               },
             ],
           },
@@ -35,6 +36,7 @@ export default createStore({
         userid: 1,
         name: "Ankush Karkar",
         password: "test@123",
+        shippingaddress: "123 Erbsville Rd, Waterloo ON N2T2Y7",
         orders: [
           {
             orderId: 1,
@@ -47,7 +49,7 @@ export default createStore({
                 img: "https://m.media-amazon.com/images/I/51o0cDiIQ7L._SL1000_.jpg",
                 quantity: 2,
                 rating: 3,
-                comment: "Hello",
+                comment: "Not very happy",
               },
             ],
           },
@@ -59,6 +61,7 @@ export default createStore({
         userid: 1,
         name: "Mohan Lingam",
         password: "test@123",
+        shippingaddress: "789 Erbsville Rd, Waterloo ON N2T2Y7",
         orders: [
           {
             orderId: 1,
