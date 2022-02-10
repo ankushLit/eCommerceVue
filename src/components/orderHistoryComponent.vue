@@ -57,7 +57,7 @@
                   type="text"
                   name="comment"
                   value=""
-                  id="comment"
+                  v-bind:id="product.itemId"
                   placeholder="Comment"
                 />
               </div>
@@ -76,7 +76,7 @@
                 <a
                   to="/"
                   class="link bg-green pv2 ph3 bn br2 white tc db dib-ns pointer ma2 fl"
-                  @click="addComment(order.orderId, product.id)"
+                  @click="addComment(order.orderId, product.id, product.itemId)"
                   >Add</a
                 >
               </div>
@@ -133,8 +133,8 @@ export default {
     },
   },
   methods: {
-    addComment(orderid, productid) {
-      var comment = document.getElementById("comment").value;
+    addComment(orderid, productid, itemId) {
+      var comment = document.getElementById(itemId).value;
       var rating = document.getElementById("rating").value;
       const orderPackage = {
         orderid: orderid,
